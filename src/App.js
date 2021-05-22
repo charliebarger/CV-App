@@ -11,11 +11,11 @@ class App extends Component {
       Personal: {
         firstName: { text: "", keyCode: uniqid() },
         lastName: { text: "", keyCode: uniqid() },
-        // title: "",
-        // address: "",
-        // phone: "",
-        // email: "",
-        // descriprion: "",
+        title: { text: "", keyCode: uniqid() },
+        address: { text: "", keyCode: uniqid() },
+        phone: { text: "", keyCode: uniqid() },
+        email: { text: "", keyCode: uniqid() },
+        description: { text: "", keyCode: uniqid() },
       },
     };
   }

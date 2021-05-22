@@ -1,11 +1,17 @@
 import React from "react";
 
 const PrintCV = (props) => {
-  console.log(props.values.firstName);
+  const { values } = props;
+  console.log(props.values);
   return (
     <div>
-      <p>{props.values.firstName.text}</p>
-      <p>{props.values.lastName.text}</p>
+      <p>{values.firstName.text}</p>
+      <p>{values.lastName.text}</p>
+      <p>{values.title.text}</p>
+      <p>{values.address.text}</p>
+      <p>{values.phone.text}</p>
+      <p>{values.email.text}</p>
+      <p>{values.description.text}</p>
     </div>
   );
 };
