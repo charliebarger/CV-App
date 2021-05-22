@@ -2,14 +2,15 @@ import "./App.css";
 import Personal from "./componenets/Personal";
 import PrintCV from "./componenets/PrintCV";
 import React, { Component } from "react";
+import uniqid from "uniqid";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       Personal: {
-        firstName: "",
-        lastName: "",
+        firstName: { text: "", keyCode: uniqid() },
+        lastName: { text: "", keyCode: uniqid() },
         // title: "",
         // address: "",
         // phone: "",
@@ -23,8 +24,9 @@ class App extends Component {
     let newState = this.state.Personal;
     const keys = Object.keys(this.state.Personal);
     keys.forEach((key) => {
+      newState[key].keyCode = this.state.Personal[key].keyCode;
       if (e.target.id === key) {
-        newState[key] = e.target.value;
+        newState[key].text = e.target.value;
         this.setState({
           Personal: newState,
         });
@@ -35,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Personal printName={this.printName} />
+        <Personal printName={this.printName} values={this.state.Personal} />
         <PrintCV values={this.state.Personal} />
       </div>
     );
