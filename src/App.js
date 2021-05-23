@@ -9,13 +9,17 @@ class App extends Component {
     super();
     this.state = {
       Personal: {
-        firstName: { text: "", keyCode: uniqid() },
-        lastName: { text: "", keyCode: uniqid() },
-        title: { text: "", keyCode: uniqid() },
-        address: { text: "", keyCode: uniqid() },
-        phone: { text: "", keyCode: uniqid() },
-        email: { text: "", keyCode: uniqid() },
-        description: { text: "", keyCode: uniqid() },
+        firstName: { text: "", keyCode: uniqid(), placeHolder: "First Name" },
+        lastName: { text: "", keyCode: uniqid(), placeHolder: "Last Name" },
+        title: { text: "", keyCode: uniqid(), placeHolder: "Title" },
+        address: { text: "", keyCode: uniqid(), placeHolder: "Address" },
+        phone: { text: "", keyCode: uniqid(), placeHolder: "Phone Number" },
+        email: { text: "", keyCode: uniqid(), placeHolder: "Email" },
+        description: {
+          text: "",
+          keyCode: uniqid(),
+          placeHolder: "Description",
+        },
       },
     };
   }

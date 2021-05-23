@@ -13,6 +13,7 @@ const Personal = (props) => {
           <input
             key={props.values[value].keyCode}
             id={value}
+            placeholder={props.values[value].placeHolder}
             onChange={props.printName}
           ></input>
         );
