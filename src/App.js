@@ -37,7 +37,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Personal printName={this.printName} values={this.state.Personal} />
+        <div className="input-section">
+          <Personal printName={this.printName} values={this.state.Personal} />
+        </div>
         <PrintCV values={this.state.Personal} />
       </div>
     );
