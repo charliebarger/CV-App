@@ -21,8 +21,25 @@ class App extends Component {
           placeHolder: "Description",
         },
       },
+      Experience: {
+        numberOfFields: 1,
+        Inputs: {
+          position: { text: "", keyCode: uniqid(), placeHolder: "Position" },
+          company: { text: "", keyCode: uniqid(), placeHolder: "Company" },
+          city: { text: "", keyCode: uniqid(), placeHolder: "City" },
+          startDate: { text: "", keyCode: uniqid(), placeHolder: "Start Date" },
+          endDate: { text: "", keyCode: uniqid(), placeHolder: "End Date" },
+        },
+      },
     };
   }
+
+  addExperience = () => {
+    this.setState({
+      Personal: this.Personal,
+    });
+  };
+
   printName = (e) => {
     console.log(this.state.Personal);
     let newState = this.state.Personal;
@@ -42,10 +59,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="input-section">
-          <UserInformation
-            printName={this.printName}
-            values={this.state.Personal}
-          />
+          <UserInformation printName={this.printName} values={this.state} />
         </div>
         <PrintCV values={this.state.Personal} />
       </div>
