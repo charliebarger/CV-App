@@ -1,17 +1,17 @@
 import React from "react";
 import "../App.css";
+import CVheader from "./CVheader";
 
 const PrintCV = (props) => {
   const { values } = props;
   console.log(props.values);
   return (
     <div className="resume">
-      <div className="resume-header">
-        <p className="full-name">
-          {values.firstName.text + " " + values.lastName.text}
-        </p>
-        <p className="title">{values.title.text}</p>
-      </div>
+      <CVheader
+        firstName={values.firstName.text}
+        lastName={values.lastName.text}
+        title={values.title.text}
+      />
       <div className="resume-main"></div>
       <div className="resume-details">
         <p className="address">{values.address.text}</p>

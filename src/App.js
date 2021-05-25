@@ -1,5 +1,5 @@
 import "./App.css";
-import Personal from "./componenets/Personal";
+import UserInformation from "./componenets/UserInformation";
 import PrintCV from "./componenets/PrintCV";
 import React, { Component } from "react";
 import uniqid from "uniqid";
@@ -42,7 +42,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="input-section">
-          <Personal printName={this.printName} values={this.state.Personal} />
+          <UserInformation
+            printName={this.printName}
+            values={this.state.Personal}
+          />
         </div>
         <PrintCV values={this.state.Personal} />
       </div>
