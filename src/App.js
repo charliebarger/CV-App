@@ -21,27 +21,43 @@ class App extends Component {
           placeHolder: "Description",
         },
       },
-      Experience: {
-        numberOfFields: 1,
-        Inputs: {
-          position: { text: "", keyCode: uniqid(), placeHolder: "Position" },
-          company: { text: "", keyCode: uniqid(), placeHolder: "Company" },
-          city: { text: "", keyCode: uniqid(), placeHolder: "City" },
-          startDate: { text: "", keyCode: uniqid(), placeHolder: "Start Date" },
-          endDate: { text: "", keyCode: uniqid(), placeHolder: "End Date" },
-        },
-      },
+      Experience: [this.newExperience()],
     };
   }
 
+  newExperience = () => {
+    let Experience = {
+      keyCode: uniqid(),
+      Inputs: {
+        position: { text: "", keyCode: uniqid(), placeHolder: "Position" },
+        company: { text: "", keyCode: uniqid(), placeHolder: "Company" },
+        city: { text: "", keyCode: uniqid(), placeHolder: "City" },
+        startDate: {
+          text: "",
+          keyCode: uniqid(),
+          placeHolder: "Start Date",
+        },
+        endDate: { text: "", keyCode: uniqid(), placeHolder: "End Date" },
+      },
+    };
+    return Experience;
+  };
+
   addExperience = () => {
     this.setState({
-      Personal: this.Personal,
+      Experience: this.state.Experience.concat(this.newExperience()),
+    });
+  };
+
+  removeExperience = (e) => {
+    this.setState({
+      Experience: this.state.Experience.filter(
+        (item) => item.keyCode !== e.target.dataset.code
+      ),
     });
   };
 
   printName = (e) => {
-    console.log(this.state.Personal);
     let newState = this.state.Personal;
     const keys = Object.keys(this.state.Personal);
     keys.forEach((key) => {
@@ -55,11 +71,24 @@ class App extends Component {
     });
   };
 
+  printExperience = (e) => {
+    let newState = this.state.Experience;
+    newState.forEach((item) => {
+      if (item.keyCode === e.target.parentElement.dataset.keyCode) {
+      }
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <div className="input-section">
-          <UserInformation printName={this.printName} values={this.state} />
+          <UserInformation
+            printName={this.printName}
+            values={this.state}
+            deleteExperience={this.removeExperience}
+            addExperience={this.addExperience}
+          />
         </div>
         <PrintCV values={this.state.Personal} />
       </div>

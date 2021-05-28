@@ -15,6 +15,8 @@ const UserInformation = (props) => {
       <Experience
         values={props.values.Experience}
         printName={props.printName}
+        deleteItem={props.deleteExperience}
+        addExperience={props.addExperience}
       />
     </div>
   );
