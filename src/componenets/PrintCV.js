@@ -1,25 +1,29 @@
 import React from "react";
 import "../App.css";
 import CVheader from "./CVheader";
+import PrintExperience from "./PrintExperience";
 
 const PrintCV = (props) => {
   const { values } = props;
-  console.log(props.values);
+  console.log(props);
   return (
     <div className="resume">
       <CVheader
-        firstName={values.firstName.text}
-        lastName={values.lastName.text}
-        title={values.title.text}
+        firstName={values.Personal.firstName.text}
+        lastName={values.Personal.lastName.text}
+        title={values.Personal.title.text}
       />
       <div className="resume-main">
-        
+        <PrintExperience experiences={values.Experience} />
       </div>
       <div className="resume-details">
-        <p className="address">{values.address.text}</p>
-        <p className="phone">{values.phone.text}</p>
-        <p className="email">{values.email.text}</p>
-        <p className="description">{values.description.text}</p>
+        <p className="details-subheader">Address</p>
+        <p className="address detail">{values.Personal.address.text}</p>
+        <p className="details-subheader">Phone Number</p>
+        <p className="phone detail">{values.Personal.phone.text}</p>
+        <p className="details-subheader">Email Address</p>
+        <p className="email detail">{values.Personal.email.text}</p>
+        {/* <p className="description">{values.Personal.description.text}</p> */}
       </div>
     </div>
   );

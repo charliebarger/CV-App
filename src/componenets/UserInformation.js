@@ -4,7 +4,6 @@ import RenderInputs from "./RenderInputs";
 import Experience from "./Experience";
 
 const UserInformation = (props) => {
-  console.log(props);
   return (
     <div>
       <RenderInputs
@@ -14,7 +13,7 @@ const UserInformation = (props) => {
       />
       <Experience
         values={props.values.Experience}
-        printName={props.printName}
+        printName={props.printExperience}
         deleteItem={props.deleteExperience}
         addExperience={props.addExperience}
       />

@@ -72,9 +72,21 @@ class App extends Component {
   };
 
   printExperience = (e) => {
+    console.log(this.state);
     let newState = this.state.Experience;
     newState.forEach((item) => {
-      if (item.keyCode === e.target.parentElement.dataset.keyCode) {
+      if (
+        item.keyCode === e.target.parentElement.parentElement.dataset.keycode
+      ) {
+        for (const property in item.Inputs) {
+          console.log(property, e.target.id);
+          if (property === e.target.id) {
+            item.Inputs[property].text = e.target.value;
+            this.setState({
+              Experience: newState,
+            });
+          }
+        }
       }
     });
   };
@@ -85,12 +97,13 @@ class App extends Component {
         <div className="input-section">
           <UserInformation
             printName={this.printName}
+            printExperience={this.printExperience}
             values={this.state}
             deleteExperience={this.removeExperience}
             addExperience={this.addExperience}
           />
         </div>
-        <PrintCV values={this.state.Personal} />
+        <PrintCV values={this.state} />
       </div>
     );
   }
