@@ -9,7 +9,7 @@ const Experience = (props) => {
       <h1 className="input-header">Experience</h1>
       {props.values.map((value) => {
         return (
-          <div key={value.keyCode}>
+          <div key={value.keyCode} data-keyCode={value.keyCode}>
             <RenderInputs values={value.Inputs} printName={props.printName} />
             <button data-code={value.keyCode} onClick={props.deleteItem}>
               Delete

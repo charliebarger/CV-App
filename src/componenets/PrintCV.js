@@ -12,7 +12,9 @@ const PrintCV = (props) => {
         lastName={values.lastName.text}
         title={values.title.text}
       />
-      <div className="resume-main"></div>
+      <div className="resume-main">
+        
+      </div>
       <div className="resume-details">
         <p className="address">{values.address.text}</p>
         <p className="phone">{values.phone.text}</p>
