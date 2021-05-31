@@ -1,22 +1,31 @@
 import React from "react";
 import "../../App.css";
 import RenderInputs from "./RenderInputs";
+import Button from "./Button";
 
 const Experience = (props) => {
+  console.log(props);
   return (
     <div>
-      <h1 className="input-header">Experience</h1>
+      <h2 className="input-header">Experience</h2>
       {props.values.map((value) => {
         return (
           <div key={value.keyCode} data-keycode={value.keyCode}>
             <RenderInputs values={value.Inputs} printName={props.printName} />
-            <button data-code={value.keyCode} onClick={props.deleteItem}>
-              Delete
-            </button>
+            <Button
+              customClass={"delete-button"}
+              keyCode={value.keyCode}
+              clickFunc={props.deleteItem}
+              content="Delete"
+            />
           </div>
         );
       })}
-      <button onClick={props.addExperience}>Add</button>
+      <Button
+        customClass={"add-button"}
+        clickFunc={props.addExperience}
+        content="Add"
+      />
     </div>
   );
 };

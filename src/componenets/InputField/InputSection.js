@@ -1,12 +1,12 @@
 import React from "react";
 import "../../App.css";
-import RenderInputs from "./RenderInputs";
+import PersonalInputs from "./PersonalInputs";
 import Experience from "./ExperienceInputs";
 
 const InputSection = (props) => {
   return (
     <div className="input-section">
-      <RenderInputs
+      <PersonalInputs
         title={"Personal Information"}
         values={props.values.Personal}
         printName={props.printName}
