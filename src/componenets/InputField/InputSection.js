@@ -1,11 +1,11 @@
 import React from "react";
-import "../App.css";
+import "../../App.css";
 import RenderInputs from "./RenderInputs";
-import Experience from "./Experience";
+import Experience from "./ExperienceInputs";
 
-const UserInformation = (props) => {
+const InputSection = (props) => {
   return (
-    <div>
+    <div className="input-section">
       <RenderInputs
         title={"Personal Information"}
         values={props.values.Personal}
@@ -21,4 +21,4 @@ const UserInformation = (props) => {
   );
 };
 
-export default UserInformation;
+export default InputSection;

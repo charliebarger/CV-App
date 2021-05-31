@@ -1,6 +1,6 @@
 import "./App.css";
-import UserInformation from "./componenets/UserInformation";
-import PrintCV from "./componenets/PrintCV";
+import InputSection from "./componenets/InputField/InputSection";
+import PrintCV from "./componenets/CV/PrintCV";
 import React, { Component } from "react";
 import uniqid from "uniqid";
 
@@ -57,7 +57,7 @@ class App extends Component {
     });
   };
 
-  printName = (e) => {
+  updatePersonal = (e) => {
     let newState = this.state.Personal;
     const keys = Object.keys(this.state.Personal);
     keys.forEach((key) => {
@@ -71,15 +71,13 @@ class App extends Component {
     });
   };
 
-  printExperience = (e) => {
-    console.log(this.state);
+  updateExperience = (e) => {
     let newState = this.state.Experience;
     newState.forEach((item) => {
       if (
         item.keyCode === e.target.parentElement.parentElement.dataset.keycode
       ) {
         for (const property in item.Inputs) {
-          console.log(property, e.target.id);
           if (property === e.target.id) {
             item.Inputs[property].text = e.target.value;
             this.setState({
@@ -94,15 +92,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="input-section">
-          <UserInformation
-            printName={this.printName}
-            printExperience={this.printExperience}
-            values={this.state}
-            deleteExperience={this.removeExperience}
-            addExperience={this.addExperience}
-          />
-        </div>
+        <InputSection
+          printName={this.updatePersonal}
+          printExperience={this.updateExperience}
+          values={this.state}
+          deleteExperience={this.removeExperience}
+          addExperience={this.addExperience}
+        />
         <PrintCV values={this.state} />
       </div>
     );
