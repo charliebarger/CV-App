@@ -6,7 +6,8 @@ const PersonalInputs = (props) => {
   return (
     <div>
       <h2>{props.title}</h2>
-      <RenderInputs values={props.values} printName={props.printName} />
+      <RenderInputs values={props.values.Inputs} printName={props.printName} />
+      <textarea placeholder={props.values.description.placeHolder}></textarea>
     </div>
   );
 };

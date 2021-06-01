@@ -9,12 +9,14 @@ class App extends Component {
     super();
     this.state = {
       Personal: {
-        firstName: { text: "", keyCode: uniqid(), placeHolder: "First Name" },
-        lastName: { text: "", keyCode: uniqid(), placeHolder: "Last Name" },
-        title: { text: "", keyCode: uniqid(), placeHolder: "Title" },
-        address: { text: "", keyCode: uniqid(), placeHolder: "Address" },
-        phone: { text: "", keyCode: uniqid(), placeHolder: "Phone Number" },
-        email: { text: "", keyCode: uniqid(), placeHolder: "Email" },
+        Inputs: {
+          firstName: { text: "", keyCode: uniqid(), placeHolder: "First Name" },
+          lastName: { text: "", keyCode: uniqid(), placeHolder: "Last Name" },
+          title: { text: "", keyCode: uniqid(), placeHolder: "Title" },
+          address: { text: "", keyCode: uniqid(), placeHolder: "Address" },
+          phone: { text: "", keyCode: uniqid(), placeHolder: "Phone Number" },
+          email: { text: "", keyCode: uniqid(), placeHolder: "Email" },
+        },
         description: {
           text: "",
           keyCode: uniqid(),
@@ -59,11 +61,11 @@ class App extends Component {
 
   updatePersonal = (e) => {
     let newState = this.state.Personal;
-    const keys = Object.keys(this.state.Personal);
+    const keys = Object.keys(this.state.Personal.Inputs);
     keys.forEach((key) => {
-      newState[key].keyCode = this.state.Personal[key].keyCode;
+      newState.Inputs[key].keyCode = this.state.Personal.Inputs[key].keyCode;
       if (e.target.id === key) {
-        newState[key].text = e.target.value;
+        newState.Inputs[key].text = e.target.value;
         this.setState({
           Personal: newState,
         });

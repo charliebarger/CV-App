@@ -5,7 +5,7 @@ import PrintExperience from "./PrintExperience";
 
 const PrintCV = (props) => {
   console.log(props);
-  const values = props.values.Personal;
+  const values = props.values.Personal.Inputs;
   console.log(values);
   return (
     <div className="resume">
