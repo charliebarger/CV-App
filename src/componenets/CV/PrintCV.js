@@ -1,7 +1,8 @@
 import React from "react";
 import "../../App.css";
-import CVheader from "./CVheaderSection";
-import PrintExperience from "./CVExperienceSection";
+import CVheader from "./CVheader";
+import ExperienceCVSection from "./ExperienceCVSection";
+import CVmain from "./CVmain";
 
 const PrintCV = (props) => {
   const personal = props.values.Personal;
@@ -16,8 +17,12 @@ const PrintCV = (props) => {
       <div className="resume-main">
         <h2 className="main-subsection">About</h2>
         <p>{props.values.Personal.description.text}</p>
-        <PrintExperience experiences={experience} />
+        <ExperienceCVSection experiences={experience} />
       </div>
+      <CVmain
+        about={props.values.Personal.description.text}
+        experiences={experience}
+      ></CVmain>
       <div className="resume-details">
         <p className="details-subheader">Address</p>
         <p className="address detail">{personal.Inputs.address.text}</p>
