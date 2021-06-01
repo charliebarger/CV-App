@@ -60,16 +60,21 @@ class App extends Component {
   };
 
   updatePersonal = (e) => {
+    console.log(this.state.Personal["description"]);
     let newState = this.state.Personal;
-    const keys = Object.keys(this.state.Personal.Inputs);
-    keys.forEach((key) => {
-      newState.Inputs[key].keyCode = this.state.Personal.Inputs[key].keyCode;
-      if (e.target.id === key) {
-        newState.Inputs[key].text = e.target.value;
-        this.setState({
-          Personal: newState,
-        });
-      }
+    if (e.target.id === "description") {
+      newState["description"].text = e.target.value;
+    } else {
+      const keys = Object.keys(this.state.Personal.Inputs);
+      keys.forEach((key) => {
+        newState.Inputs[key].keyCode = this.state.Personal.Inputs[key].keyCode;
+        if (e.target.id === key) {
+          newState.Inputs[key].text = e.target.value;
+        }
+      });
+    }
+    this.setState({
+      Personal: newState,
     });
   };
 
