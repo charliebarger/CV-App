@@ -7,7 +7,9 @@ const Button = (props) => {
     <button
       className={classes}
       data-code={props.keyCode}
-      onClick={props.clickFunc}
+      onClick={() => {
+        props.clickFunc(props.section);
+      }}
     >
       {props.content}
     </button>

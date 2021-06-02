@@ -3,7 +3,6 @@ import "../../App.css";
 
 const CVsidebar = (props) => {
   const { personal } = props;
-  console.log(personal);
   return (
     <div className="resume-details">
       <p className="details-subheader">Address</p>

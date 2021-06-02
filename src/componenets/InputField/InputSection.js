@@ -12,6 +12,7 @@ const InputSection = (props) => {
         printName={props.printName}
       />
       <Experience
+        section={Object.keys(props.values)[1]}
         values={props.values.Experience}
         printName={props.printExperience}
         deleteItem={props.deleteExperience}

@@ -3,7 +3,6 @@ import "../../App.css";
 import RenderInputs from "./RenderInputs";
 
 const PersonalInputs = (props) => {
-  console.log(props.values.description);
   return (
     <div>
       <h2>{props.title}</h2>

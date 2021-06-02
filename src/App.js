@@ -45,22 +45,24 @@ class App extends Component {
     return Experience;
   };
 
-  addExperience = () => {
+  addExperience = (parent) => {
+    let addFunc =
+      parent === "Experience" ? this.newExperience : console.log("filler");
     this.setState({
-      Experience: this.state.Experience.concat(this.newExperience()),
+      Experience: this.state[parent].concat(addFunc()),
     });
   };
 
   removeExperience = (e) => {
+    console.log(parent, e.target);
     this.setState({
-      Experience: this.state.Experience.filter(
+      Experience: this.state[parent].filter(
         (item) => item.keyCode !== e.target.dataset.code
       ),
     });
   };
 
   updatePersonal = (e) => {
-    console.log(this.state.Personal["description"]);
     let newState = this.state.Personal;
     if (e.target.id === "description") {
       newState["description"].text = e.target.value;
