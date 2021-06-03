@@ -4,6 +4,7 @@ import CVheader from "./CVheader";
 import ExperienceCVSection from "./ExperienceCVSection";
 import CVmain from "./CVmain";
 import CVsidebar from "./CVsidebar";
+import EducationCVSection from "./EducationCVsection";
 
 const PrintCV = (props) => {
   const personal = props.values.Personal;
@@ -18,6 +19,7 @@ const PrintCV = (props) => {
       <CVmain
         about={props.values.Personal.description.text}
         experiences={experience}
+        education={props.values.Education}
       />
       <CVsidebar personal={personal.Inputs} />
     </div>
