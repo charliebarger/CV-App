@@ -2,6 +2,7 @@ import React from "react";
 import "../../App.css";
 import PersonalInputs from "./PersonalInputs";
 import Experience from "./ExperienceInputs";
+import Education from "./EducationSection";
 
 const InputSection = (props) => {
   return (
@@ -15,6 +16,13 @@ const InputSection = (props) => {
         section={Object.keys(props.values)[1]}
         values={props.values.Experience}
         printName={props.printExperience}
+        deleteItem={props.deleteExperience}
+        addExperience={props.addExperience}
+      />
+      <Education
+        section={Object.keys(props.values)[2]}
+        values={props.values.Education}
+        // printName={props.printExperience}
         deleteItem={props.deleteExperience}
         addExperience={props.addExperience}
       />

@@ -24,8 +24,27 @@ class App extends Component {
         },
       },
       Experience: [this.newExperience()],
+      Education: [this.newEducation()],
     };
   }
+
+  newEducation = () => {
+    let education = {
+      keyCode: uniqid(),
+      Inputs: {
+        school: { text: "", keyCode: uniqid(), placeHolder: "School Name" },
+        degree: { text: "", keyCode: uniqid(), placeHolder: "Degree" },
+        city: { text: "", keyCode: uniqid(), placeHolder: "City" },
+        startDate: {
+          text: "",
+          keyCode: uniqid(),
+          placeHolder: "Start Date",
+        },
+        endDate: { text: "", keyCode: uniqid(), placeHolder: "End Date" },
+      },
+    };
+    return education;
+  };
 
   newExperience = () => {
     let Experience = {
@@ -46,20 +65,28 @@ class App extends Component {
   };
 
   addExperience = (parent) => {
-    let addFunc =
-      parent === "Experience" ? this.newExperience : console.log("filler");
-    this.setState({
-      Experience: this.state[parent].concat(addFunc()),
-    });
+    parent === "Experience"
+      ? this.setState({
+          Experience: this.state[parent].concat(this.newExperience()),
+        })
+      : this.setState({
+          Education: this.state[parent].concat(this.newEducation()),
+        });
   };
 
   removeExperience = (parent, e) => {
     console.log(parent, e.target);
-    this.setState({
-      Experience: this.state[parent].filter(
-        (item) => item.keyCode !== e.target.dataset.code
-      ),
-    });
+    parent === "Experience"
+      ? this.setState({
+          Experience: this.state["Experience"].filter(
+            (item) => item.keyCode !== e.target.dataset.code
+          ),
+        })
+      : this.setState({
+          Education: this.state["Education"].filter(
+            (item) => item.keyCode !== e.target.dataset.code
+          ),
+        });
   };
 
   updatePersonal = (e) => {
