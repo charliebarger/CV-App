@@ -22,7 +22,7 @@ const InputSection = (props) => {
       <Education
         section={Object.keys(props.values)[2]}
         values={props.values.Education}
-        // printName={props.printExperience}
+        printName={props.printExperience}
         deleteItem={props.deleteExperience}
         addExperience={props.addExperience}
       />

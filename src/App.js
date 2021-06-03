@@ -107,8 +107,9 @@ class App extends Component {
     });
   };
 
-  updateExperience = (e) => {
-    let newState = this.state.Experience;
+  updateExperience = (e, section) => {
+    console.log(this.state.Education);
+    let newState = this.state[section];
     newState.forEach((item) => {
       if (
         item.keyCode === e.target.parentElement.parentElement.dataset.keycode
@@ -116,14 +117,20 @@ class App extends Component {
         for (const property in item.Inputs) {
           if (property === e.target.id) {
             item.Inputs[property].text = e.target.value;
-            this.setState({
-              Experience: newState,
-            });
+            section === "Experience"
+              ? this.setState({
+                  Experience: newState,
+                })
+              : this.setState({
+                  Education: newState,
+                });
           }
         }
       }
     });
   };
+
+  update;
 
   render() {
     return (

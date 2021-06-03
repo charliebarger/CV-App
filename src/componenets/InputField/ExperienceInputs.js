@@ -10,7 +10,12 @@ const Experience = (props) => {
       {props.values.map((value) => {
         return (
           <div key={value.keyCode} data-keycode={value.keyCode}>
-            <RenderInputs values={value.Inputs} printName={props.printName} />
+            <RenderInputs
+              values={value.Inputs}
+              printName={(e) => {
+                props.printName(e, props.section);
+              }}
+            />
             <Button
               customClass={"delete-button"}
               keyCode={value.keyCode}
