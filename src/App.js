@@ -53,7 +53,7 @@ class App extends Component {
     });
   };
 
-  removeExperience = (e) => {
+  removeExperience = (parent, e) => {
     console.log(parent, e.target);
     this.setState({
       Experience: this.state[parent].filter(
