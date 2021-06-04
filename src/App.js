@@ -64,7 +64,7 @@ class App extends Component {
     return Experience;
   };
 
-  addExperience = (parent) => {
+  addItem = (parent) => {
     parent === "Experience"
       ? this.setState({
           Experience: this.state[parent].concat(this.newExperience()),
@@ -74,7 +74,7 @@ class App extends Component {
         });
   };
 
-  removeExperience = (parent, e) => {
+  removeItem = (parent, e) => {
     console.log(parent, e.target);
     parent === "Experience"
       ? this.setState({
@@ -107,7 +107,7 @@ class App extends Component {
     });
   };
 
-  updateExperience = (e, section) => {
+  updateItem = (e, section) => {
     console.log(this.state.Education);
     let newState = this.state[section];
     newState.forEach((item) => {
@@ -135,10 +135,10 @@ class App extends Component {
       <div className="App">
         <InputSection
           printName={this.updatePersonal}
-          printExperience={this.updateExperience}
+          printItem={this.updateItem}
           values={this.state}
-          deleteExperience={this.removeExperience}
-          addExperience={this.addExperience}
+          deleteItem={this.removeItem}
+          addItem={this.addItem}
         />
         <PrintCV values={this.state} />
       </div>

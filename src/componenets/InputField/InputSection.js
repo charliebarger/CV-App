@@ -15,16 +15,16 @@ const InputSection = (props) => {
       <Experience
         section={Object.keys(props.values)[1]}
         values={props.values.Experience}
-        printName={props.printExperience}
-        deleteItem={props.deleteExperience}
-        addExperience={props.addExperience}
+        printName={props.printItem}
+        deleteItem={props.deleteItem}
+        addItem={props.addItem}
       />
       <Education
         section={Object.keys(props.values)[2]}
         values={props.values.Education}
-        printName={props.printExperience}
-        deleteItem={props.deleteExperience}
-        addExperience={props.addExperience}
+        printName={props.printItem}
+        deleteItem={props.deleteItem}
+        addItem={props.addItem}
       />
     </div>
   );
