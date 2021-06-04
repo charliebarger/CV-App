@@ -1,5 +1,6 @@
 import React from "react";
 import "../../App.css";
+import PrintDates from "./PrintDates";
 
 let ExperienceCVSection = (props) => {
   return (
@@ -16,11 +17,10 @@ let ExperienceCVSection = (props) => {
                 ", " +
                 experience.Inputs.city.text}
             </span>
-            <span className="experience-dates">
-              {experience.Inputs.startDate.text +
-                " - " +
-                experience.Inputs.endDate.text}
-            </span>
+            <PrintDates
+              start={experience.Inputs.startDate.text}
+              stop={experience.Inputs.endDate.text}
+            />
           </div>
         );
       })}
