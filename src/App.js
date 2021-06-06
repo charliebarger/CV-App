@@ -3,31 +3,36 @@ import InputSection from "./componenets/InputField/InputSection";
 import PrintCV from "./componenets/CV/PrintCV";
 import React, { Component } from "react";
 import uniqid from "uniqid";
-import Header from "./header/Header";
+import Header from "./componenets/header/Header";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      Personal: {
-        Inputs: {
-          firstName: { text: "", keyCode: uniqid(), placeHolder: "First Name" },
-          lastName: { text: "", keyCode: uniqid(), placeHolder: "Last Name" },
-          title: { text: "", keyCode: uniqid(), placeHolder: "Title" },
-          address: { text: "", keyCode: uniqid(), placeHolder: "Address" },
-          phone: { text: "", keyCode: uniqid(), placeHolder: "Phone Number" },
-          email: { text: "", keyCode: uniqid(), placeHolder: "Email" },
-        },
-        description: {
-          text: "",
-          keyCode: uniqid(),
-          placeHolder: "Description",
-        },
-      },
+      Personal: this.newPersonal(),
       Experience: [this.newExperience()],
       Education: [this.newEducation()],
     };
   }
+
+  newPersonal = () => {
+    let personal = {
+      Inputs: {
+        firstName: { text: "", keyCode: uniqid(), placeHolder: "First Name" },
+        lastName: { text: "", keyCode: uniqid(), placeHolder: "Last Name" },
+        title: { text: "", keyCode: uniqid(), placeHolder: "Title" },
+        address: { text: "", keyCode: uniqid(), placeHolder: "Address" },
+        phone: { text: "", keyCode: uniqid(), placeHolder: "Phone Number" },
+        email: { text: "", keyCode: uniqid(), placeHolder: "Email" },
+      },
+      description: {
+        text: "",
+        keyCode: uniqid(),
+        placeHolder: "Description",
+      },
+    };
+    return personal;
+  };
 
   newEducation = () => {
     let education = {
@@ -63,6 +68,14 @@ class App extends Component {
       },
     };
     return Experience;
+  };
+
+  resetState = () => {
+    this.setState({
+      Personal: this.newPersonal(),
+      Experience: [this.newExperience()],
+      Education: [this.newEducation()],
+    });
   };
 
   addItem = (parent) => {
@@ -142,6 +155,7 @@ class App extends Component {
           deleteItem={this.removeItem}
           addItem={this.addItem}
         />
+        <button onClick={this.resetState}>Reset</button>
         <PrintCV values={this.state} />
       </div>
     );
