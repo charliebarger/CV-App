@@ -4,6 +4,7 @@ import PrintCV from "./componenets/CV/PrintCV";
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import Header from "./componenets/header/Header";
+import Button from "./componenets/InputField/Button";
 
 class App extends Component {
   constructor() {
@@ -119,7 +120,7 @@ class App extends Component {
     return Experience;
   };
 
-  resetState = () => {
+  displayExample = () => {
     this.setState({
       Personal: this.newPersonal([
         "John",
@@ -172,13 +173,20 @@ class App extends Component {
     });
   };
 
+  resetState = () => {
+    this.setState({
+      Personal: this.newPersonal([]),
+      Experience: [this.newExperience([])],
+      Education: [this.newEducation([])],
+    });
+  };
   addItem = (parent) => {
     parent === "Experience"
       ? this.setState({
-          Experience: this.state[parent].concat(this.newExperience()),
+          Experience: this.state[parent].concat(this.newExperience([])),
         })
       : this.setState({
-          Education: this.state[parent].concat(this.newEducation()),
+          Education: this.state[parent].concat(this.newEducation([])),
         });
   };
 
@@ -248,8 +256,9 @@ class App extends Component {
           values={this.state}
           deleteItem={this.removeItem}
           addItem={this.addItem}
-        />
-        <button onClick={this.resetState}>Reset</button>
+          displayExample={this.displayExample}
+          resetState={this.resetState}
+        ></InputSection>
         <PrintCV values={this.state} />
       </div>
     );

@@ -3,6 +3,7 @@ import "../../App.css";
 import PersonalInputs from "./PersonalInputs";
 import Experience from "./ExperienceInputs";
 import Education from "./EducationSection";
+import BottomButtons from "./BottomButtons";
 
 const InputSection = (props) => {
   return (
@@ -25,6 +26,10 @@ const InputSection = (props) => {
         printName={props.printItem}
         deleteItem={props.deleteItem}
         addItem={props.addItem}
+      />
+      <BottomButtons
+        displayExample={props.displayExample}
+        resetState={props.resetState}
       />
     </div>
   );
