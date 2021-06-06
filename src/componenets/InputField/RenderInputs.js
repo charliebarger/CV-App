@@ -10,6 +10,7 @@ const RenderInputs = (props) => {
             key={props.values[value].keyCode}
             id={value}
             placeholder={props.values[value].placeHolder}
+            value={props.values[value].text}
             onChange={props.printName}
           ></input>
         );

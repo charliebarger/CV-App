@@ -9,24 +9,51 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      Personal: this.newPersonal(),
-      Experience: [this.newExperience()],
-      Education: [this.newEducation()],
+      Personal: this.newPersonal([]),
+      Experience: [this.newExperience([])],
+      Education: [this.newEducation([])],
     };
   }
 
-  newPersonal = () => {
+  pushEmptyStrings = (myArray, totalNumberOfInputs) => {
+    for (let i = 0; i < totalNumberOfInputs; i++) {
+      if (!myArray[i]) {
+        myArray.push("");
+      }
+    }
+    return myArray;
+  };
+
+  newPersonal = (defaultValues) => {
+    let values = this.pushEmptyStrings(defaultValues, 7);
+
     let personal = {
       Inputs: {
-        firstName: { text: "", keyCode: uniqid(), placeHolder: "First Name" },
-        lastName: { text: "", keyCode: uniqid(), placeHolder: "Last Name" },
-        title: { text: "", keyCode: uniqid(), placeHolder: "Title" },
-        address: { text: "", keyCode: uniqid(), placeHolder: "Address" },
-        phone: { text: "", keyCode: uniqid(), placeHolder: "Phone Number" },
-        email: { text: "", keyCode: uniqid(), placeHolder: "Email" },
+        firstName: {
+          text: values[0],
+          keyCode: uniqid(),
+          placeHolder: "First Name",
+        },
+        lastName: {
+          text: values[1],
+          keyCode: uniqid(),
+          placeHolder: "Last Name",
+        },
+        title: {
+          text: values[2],
+          keyCode: uniqid(),
+          placeHolder: "Title",
+        },
+        address: { text: values[3], keyCode: uniqid(), placeHolder: "Address" },
+        phone: {
+          text: values[4],
+          keyCode: uniqid(),
+          placeHolder: "Phone Number",
+        },
+        email: { text: values[5], keyCode: uniqid(), placeHolder: "Email" },
       },
       description: {
-        text: "",
+        text: values[6],
         keyCode: uniqid(),
         placeHolder: "Description",
       },
@@ -34,37 +61,59 @@ class App extends Component {
     return personal;
   };
 
-  newEducation = () => {
+  personalExample = () => {
+    let personal = this.newPersonal();
+  };
+
+  newEducation = (defaultValues) => {
+    let values = this.pushEmptyStrings(defaultValues, 5);
     let education = {
       keyCode: uniqid(),
       Inputs: {
-        school: { text: "", keyCode: uniqid(), placeHolder: "School Name" },
-        degree: { text: "", keyCode: uniqid(), placeHolder: "Degree" },
-        city: { text: "", keyCode: uniqid(), placeHolder: "City" },
+        school: {
+          text: values[0],
+          keyCode: uniqid(),
+          placeHolder: "School Name",
+        },
+        degree: { text: values[1], keyCode: uniqid(), placeHolder: "Degree" },
+        city: { text: values[2], keyCode: uniqid(), placeHolder: "City" },
         startDate: {
-          text: "",
+          text: values[3],
           keyCode: uniqid(),
           placeHolder: "Start Date",
         },
-        endDate: { text: "", keyCode: uniqid(), placeHolder: "End Date" },
+        endDate: {
+          text: values[4],
+          keyCode: uniqid(),
+          placeHolder: "End Date",
+        },
       },
     };
     return education;
   };
 
-  newExperience = () => {
+  newExperience = (defaultValues) => {
+    let values = this.pushEmptyStrings(defaultValues, 5);
     let Experience = {
       keyCode: uniqid(),
       Inputs: {
-        position: { text: "", keyCode: uniqid(), placeHolder: "Position" },
-        company: { text: "", keyCode: uniqid(), placeHolder: "Company" },
-        city: { text: "", keyCode: uniqid(), placeHolder: "City" },
+        position: {
+          text: values[0],
+          keyCode: uniqid(),
+          placeHolder: "Position",
+        },
+        company: { text: values[1], keyCode: uniqid(), placeHolder: "Company" },
+        city: { text: values[2], keyCode: uniqid(), placeHolder: "City" },
         startDate: {
-          text: "",
+          text: values[3],
           keyCode: uniqid(),
           placeHolder: "Start Date",
         },
-        endDate: { text: "", keyCode: uniqid(), placeHolder: "End Date" },
+        endDate: {
+          text: values[4],
+          keyCode: uniqid(),
+          placeHolder: "End Date",
+        },
       },
     };
     return Experience;
@@ -72,9 +121,54 @@ class App extends Component {
 
   resetState = () => {
     this.setState({
-      Personal: this.newPersonal(),
-      Experience: [this.newExperience()],
-      Education: [this.newEducation()],
+      Personal: this.newPersonal([
+        "John",
+        "Dohne",
+        "Front End Web Developer",
+        "Denver, CO",
+        "555-555-5555",
+        "example@email.com",
+        "tristique senectus et netus et malesuada fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida.",
+      ]),
+      Experience: [
+        this.newExperience([
+          "Senior Developer",
+          "Google",
+          "Seattle, WA",
+          "2021",
+          "Present",
+        ]),
+        this.newExperience([
+          "Junior Developer",
+          "Mcmanus Podiatry Group",
+          "Dallas, TX",
+          "2019",
+          "2021",
+        ]),
+        this.newExperience([
+          "Freelance Developer",
+          "Dohne International Worldwide",
+          "Dallas, TX",
+          "2019",
+          "Present",
+        ]),
+      ],
+      Education: [
+        this.newEducation([
+          "The Odin Project",
+          "Full Stack Javascript Curriculum",
+          "Remote",
+          "2018",
+          "2019",
+        ]),
+        this.newEducation([
+          "Southern Methodist University",
+          "Business Management",
+          "Dallas, TX",
+          "2014",
+          "2018",
+        ]),
+      ],
     });
   };
 
