@@ -1,6 +1,5 @@
 import React from "react";
 import "../../App.css";
-import PrintCV from "./PrintCV";
 
 const PrintDates = (props) => {
   return (

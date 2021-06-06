@@ -1,10 +1,8 @@
 import React from "react";
 import "../../App.css";
 import CVheader from "./CVheader";
-import ExperienceCVSection from "./ExperienceCVSection";
 import CVmain from "./CVmain";
 import CVsidebar from "./CVsidebar";
-import EducationCVSection from "./EducationCVsection";
 
 const PrintCV = (props) => {
   const personal = props.values.Personal;
