@@ -3,6 +3,7 @@ import InputSection from "./componenets/InputField/InputSection";
 import PrintCV from "./componenets/CV/PrintCV";
 import React, { Component } from "react";
 import uniqid from "uniqid";
+import Header from "./header/Header";
 
 class App extends Component {
   constructor() {
@@ -133,6 +134,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <InputSection
           printName={this.updatePersonal}
           printItem={this.updateItem}
