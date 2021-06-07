@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../../App.css";
 
 const BottomButtons = (props) => {
@@ -10,6 +10,10 @@ const BottomButtons = (props) => {
       <button onClick={props.resetState} className={"reset-btn btn"}>
         Reset
       </button>
+      {/* code to print CV */}
+      {/* <button onClick={window.print} className={"pdf-btn btn"}>
+        Create PDF
+      </button> */}
     </div>
   );
 };

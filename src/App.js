@@ -4,7 +4,6 @@ import PrintCV from "./componenets/CV/PrintCV";
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import Header from "./componenets/header/Header";
-import Button from "./componenets/InputField/Button";
 
 class App extends Component {
   constructor() {

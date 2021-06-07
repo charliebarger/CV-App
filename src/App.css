@@ -180,7 +180,7 @@ textarea {
 }
 
 .cv-header > * {
-  margin: auto 50px;
+  margin: auto 0px;
 }
 
 .bottom-button-wrapper {
@@ -196,4 +196,24 @@ textarea {
 
 .btn:hover {
   box-shadow: 0px 1px 18px 0px #000000;
+}
+
+@media print {
+  #root {
+    display: none;
+  }
+  .resume {
+    display: block;
+  }
+}
+
+.image-wrapper {
+  height: 100%;
+  margin-left: 5px;
+}
+
+.logo {
+  height: 100%;
+  padding: 15px;
+  margin-right: auto;
 }
